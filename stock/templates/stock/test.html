@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='{% static "stocks/css/styles.css" %}'>
+    <title>{% block title %}Название по умолчанию{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><a href="/">Stocks</a></h1>
+            <nav>
+                <a href="/russia">Russia</a>
+                <a href="/usa">USA</a>
+                <a href="/china">China</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Основное содержимое страницы будет заменено в дочерних шаблонах -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <!-- Здесь можно разместить информацию в подвале, например, копирайт и ссылки на социальные сети -->
+    </footer>
+</body>
+</html>

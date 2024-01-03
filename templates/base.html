@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='{% static "stocks/css/styles.css" %}'>
+    <title>Акции фондового рынка</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+        <h1><a href="{% url 'about' %}">Stocks</a></h1>
+            {% for item in menu %}
+            {% if not forloop.last %}<nav>{% else %}<nav class="last">{% endif %}
+                <a href="{% url item.url_name item.title %}">{{item.title|upper}}</a></nav>
+            {% endfor %}
+            <div class="login-button">
+                <a href="login/">Login</a>
+            </div>
+        </div>
+    </header>
+{% block content %} {% endblock %}
+</body>
+</html>
